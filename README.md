@@ -23,9 +23,12 @@ See [Vite Configuration Reference](https://vitejs.dev/config/).
 
 ## Project Setup
 
+1. Run the following command
 ```sh
 npm install
 ```
+
+2. Using `.env.example` as a template, create a `.env` file in the root directory of the project. This file will be used to store environment variables. You will need to add your api keys there.
 
 ### Compile and Hot-Reload for Development
 

@@ -1,0 +1,73 @@
+const removeSpecialCharsFromString = (str: string) => {
+    return str.replace(/[^a-zA-Z ]/g, "");
+}
+
+const getArrayFromString = (str: string) => {
+    return str.split(" ");
+};
+
+const removeCommonWordsFromArray = (arr: string[]) => {
+    const commonWords = [
+        "a", "all", "an", "and", "are", "as", "at", "be", "but", "by", "for", "if", "in",
+        "into", "is", "it", "no", "not", "of", "on", "or", "such", "that", "the", "swe",
+        "their", "then", "there", "these", "they", "this", "to", "was", "will", "with",
+        "must", "before", "his", "when", "he", "over", "", "once", "more", "from", "set", "out",
+    ];
+
+    return arr.filter((word) => !commonWords.includes(word.toLowerCase()));
+};
+
+const greedyChooseInexes = (arr: any[], amount: number) => {
+    const indexLimit = Math.min(amount, arr.length);
+
+    let start = 0;
+    let end = arr.length - 1;
+
+    while (end - start > indexLimit) {
+        const randomIndex = Math.floor(Math.random() * arr.length);
+
+        if (randomIndex < arr.length / 2) {
+            start = randomIndex;
+        } else {
+            end = randomIndex;
+        }
+    }
+};
+
+const getIndexesToRemoveFromArray = (arr: any[]) => {
+    const randomNumberLimit = Math.max(0, arr.length - 10);
+    const indexArray = [] as number[];
+
+    let randomNumber = 0;
+
+    if (randomNumberLimit < 1) {
+        return indexArray;
+    }
+
+    while (indexArray.length < randomNumberLimit) {
+        randomNumber = Math.floor(Math.random() * arr.length);
+
+        if (indexArray.includes(randomNumber)) {
+            for (let endIndex = arr.length - 1; endIndex >= 0; endIndex--) {
+                if (!indexArray.includes(endIndex)) {
+                    indexArray.push(endIndex);
+                }
+
+                break;
+            }
+
+            continue;
+        }
+
+        indexArray.push(randomNumber);
+    }
+
+    return indexArray;
+}
+
+export default {
+    removeSpecialCharsFromString: removeSpecialCharsFromString,
+    getArrayFromString: getArrayFromString,
+    removeCommonWordsFromArray: removeCommonWordsFromArray,
+    getIndexesToRemoveFromArray: getIndexesToRemoveFromArray
+}

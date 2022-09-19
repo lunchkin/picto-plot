@@ -11,8 +11,8 @@ const getQuestionData = async () => {
     const movieList = await OMDB.movieNameList;
 
     return {
-        question: "Using the images below, guess the movie title.)",
-        hint: "(Hovering over the image will reveal the word.)",
+        question: "Using the images below, can you guess the movie title?",
+        hint: "Hovering over the image will reveal the associated word.",
         answer: randomMovie.Title,
         plotImageArray: wordImageArray,
         guessArray: movieList

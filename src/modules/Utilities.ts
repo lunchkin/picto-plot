@@ -8,30 +8,14 @@ const getArrayFromString = (str: string) => {
 
 const removeCommonWordsFromArray = (arr: string[]) => {
     const commonWords = [
-        "a", "all", "an", "and", "are", "as", "at", "be", "but", "by", "for", "if", "in",
-        "into", "is", "it", "no", "not", "of", "on", "or", "such", "that", "the", "swe",
-        "their", "then", "there", "these", "they", "this", "to", "was", "will", "with",
+        "a", "all", "an", "and", "are", "as", "at", "be", "but", "by", "for", "if", "in", "Middleearth",
+        "into", "is", "it", "no", "not", "of", "on", "or", "such", "that", "the", "swe", "truththe",
+        "their", "then", "there", "these", "they", "this", "to", "was", "will", "with", "whose",
         "must", "before", "his", "when", "he", "over", "", "once", "more", "from", "set", "out",
+        "solace", "eventual", "faustian", "crimeridden", "mewtwo", "pokemon", "pikachu", "dreamsharing", "pokmon"
     ];
 
     return arr.filter((word) => !commonWords.includes(word.toLowerCase()));
-};
-
-const greedyChooseInexes = (arr: any[], amount: number) => {
-    const indexLimit = Math.min(amount, arr.length);
-
-    let start = 0;
-    let end = arr.length - 1;
-
-    while (end - start > indexLimit) {
-        const randomIndex = Math.floor(Math.random() * arr.length);
-
-        if (randomIndex < arr.length / 2) {
-            start = randomIndex;
-        } else {
-            end = randomIndex;
-        }
-    }
 };
 
 const getIndexesToRemoveFromArray = (arr: any[]) => {
@@ -70,4 +54,4 @@ export default {
     getArrayFromString: getArrayFromString,
     removeCommonWordsFromArray: removeCommonWordsFromArray,
     getIndexesToRemoveFromArray: getIndexesToRemoveFromArray
-}
+};

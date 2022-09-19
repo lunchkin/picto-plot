@@ -5,7 +5,7 @@
     <div class="wrapper">
       <HelloWorld msg="You did it!" />
       <div v-if="question">
-        {{ question.Title }}
+        {{ question.answer }}
       </div>
     </div>
   </header>

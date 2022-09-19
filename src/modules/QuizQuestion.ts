@@ -1,14 +1,22 @@
-import OMDbHelper from "@/api/OMDbHelper";
-import PixabayHelper from "@/api/PixabayHelper";
+import OMDB from "@/api/OMDB";
+import Pixabay from "@/api/Pixabay";
+import pixabayHelper from "@/modules/Pixabay";
 import utils from "./Utilities";
 
 const getQuestionData = async () => {
-    const randomMovie = await OMDbHelper.getRandomMovie();
+    const randomMovie = await OMDB.getRandomMovie();
     const plotArray = makePlotArray(randomMovie.Plot);
+    const pixabayData = await Pixabay.fetchWithArray(plotArray);
+    const wordImageArray = await pixabayHelper.getWordImageArray(pixabayData);
+    const movieList = await OMDB.movieNameList;
 
-    console.log(plotArray);
-
-    return randomMovie;
+    return {
+        question: "Using the images below, guess the movie title.)",
+        hint: "(Hovering over the image will reveal the word.)",
+        answer: randomMovie.Title,
+        plotImageArray: wordImageArray,
+        guessArray: movieList
+    };
 };
 
 const makePlotArray = (plot: string) => {

@@ -17,7 +17,7 @@
           :plotItem="plotItem"
         />
       </div>
-      <MovieOptions :guessArray="question.guessArray" />
+      <MovieOptions :winningID="question.chosenMovie.imdbID" :guessArray="question.guessArray" />
     </div>
   </div>
 </template>

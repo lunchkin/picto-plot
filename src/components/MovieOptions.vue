@@ -3,46 +3,37 @@
         Select a movie for your answer!
     </h3>
     <div class="guessContainer columns is-mobile is-multiline">
-        <div
+        <MovieOption
             v-for="(movie, index) in guessArray"
             :key="index"
-            class="column is-12-touch is-6-desktop movieTitle"
+            @check-answer="checkAnswer"
+            :winningID="winningID"
+            :movieID="movie.id"
         >
-            <p class="has-text-centered">
-                {{ movie }}
-            </p>
-        </div>
+            {{ movie.name }}
+        </MovieOption>
     </div>
 </template>
 
 <script setup lang="ts">
-defineProps<{
+import MovieOption from "./MovieOption.vue";
+
+const props = defineProps<{
     guessArray: any[];
-}>()
+    winningID: string;
+}>();
+
+const checkAnswer = (id: string) => {
+    if (id === props.winningID) {
+        alert("You got it!");
+    } else {
+        alert("Sorry, try again!");
+    }
+};
 </script>
 
 <style scoped lang="scss">
 .title {
     color: #cccccc;
-}
-.movieTitle {
-    border: 1px solid #ccc;
-    border-radius: 2px;
-    cursor: pointer;
-    padding: .5rem;
-
-    p {
-        font-weight: bold;
-        color: #ccc;
-    }
-
-    &:hover {
-        background-color: #ccc;
-
-        p {
-            color: #000;
-
-        }
-    }
 }
 </style>

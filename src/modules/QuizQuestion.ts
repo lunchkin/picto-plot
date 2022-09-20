@@ -8,14 +8,16 @@ const getQuestionData = async () => {
     const plotArray = makePlotArray(randomMovie.Plot);
     const pixabayData = await Pixabay.fetchWithArray(plotArray);
     const wordImageArray = await pixabayHelper.getWordImageArray(pixabayData);
-    const movieList = await OMDB.movieNameList;
+    const movieList = await OMDB.movies;
 
+    // imdbID:
     return {
         question: "Using the images below, can you guess the movie title?",
         hint: "Hovering over the image will reveal the associated word.",
         answer: randomMovie.Title,
         plotImageArray: wordImageArray,
-        guessArray: movieList
+        guessArray: movieList,
+        chosenMovie: randomMovie,
     };
 };
 

@@ -40,4 +40,5 @@ export default {
     fetchMovies: fetchMovies,
     getRandomMovie: getRandomMovie,
     movieNameList: movieNameList,
+    movies: MOVIES
 };

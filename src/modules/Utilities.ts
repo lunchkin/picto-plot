@@ -8,7 +8,7 @@ const getArrayFromString = (str: string) => {
 
 const removeCommonWordsFromArray = (arr: string[]) => {
     const commonWords = [
-        "a", "all", "an", "and", "are", "as", "at", "be", "but", "by", "for", "if", "in", "Middleearth",
+        "a", "all", "an", "and", "are", "as", "at", "be", "but", "by", "for", "if", "in", "middleearth",
         "into", "is", "it", "no", "not", "of", "on", "or", "such", "that", "the", "swe", "truththe",
         "their", "then", "there", "these", "they", "this", "to", "was", "will", "with", "whose",
         "must", "before", "his", "when", "he", "over", "", "once", "more", "from", "set", "out",

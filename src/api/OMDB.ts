@@ -13,24 +13,17 @@ const MOVIES = [
 
 const fetchData = async (IMDB_id: string) => {
     const response = await fetch(`https://www.omdbapi.com/?i=${IMDB_id}&apikey=${import.meta.env.VITE_OMDB_API_KEY}`);
-    const data = await response.json();
-
-    return data;
+    return await response.json();
 };
 
 const getRandomMovie = async () => {
-    const movie = await fetchData(MOVIES[Math.floor(Math.random() * MOVIES.length)].id);
-
-    return movie;
+    return await fetchData(MOVIES[Math.floor(Math.random() * MOVIES.length)].id);
 }
 
 const fetchMovies = async () => {
-    const movies = await Promise.all(MOVIES.map(async (movie) => {
-        const data = await fetchData(movie.id);
-        return data;
+    return await Promise.all(MOVIES.map(async (movie) => {
+        return await fetchData(movie.id);
     }));
-
-    return movies;
 };
 
 const movieNameList = MOVIES.map(({ name }) =>  name);

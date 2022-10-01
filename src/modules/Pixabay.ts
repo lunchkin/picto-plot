@@ -1,5 +1,5 @@
 const getWordImageArray = async (pixabayData:any) => {
-    const wordImageArray = pixabayData.map((data:any) => {
+    return pixabayData.map((data: any) => {
         const word = data.word;
 
         if (!data.hits || data.hits.length < 1) {
@@ -11,10 +11,8 @@ const getWordImageArray = async (pixabayData:any) => {
 
         const image = data.hits[0].previewURL;
 
-        return { word: word, image: image };
+        return {word: word, image: image};
     });
-
-    return wordImageArray;
 };
 
 export default {

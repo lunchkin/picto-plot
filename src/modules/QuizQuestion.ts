@@ -26,9 +26,8 @@ const makePlotArray = (plot: string) => {
     const plotArray = plot.split(" ");
     const cleansedPlotArray = utils.removeCommonWordsFromArray(plotArray);
     const indexesToRemoveArray = utils.getIndexesToRemoveFromArray(cleansedPlotArray);
-    const trimmedArray = cleansedPlotArray.filter((word, index) => !indexesToRemoveArray.includes(index));
 
-    return trimmedArray;
+    return cleansedPlotArray.filter((word, index) => !indexesToRemoveArray.includes(index));
 };
 
 export default {

@@ -26,12 +26,9 @@ const fetchMovies = async () => {
     }));
 };
 
-const movieNameList = MOVIES.map(({ name }) =>  name);
-
 export default {
     fetchData: fetchData,
     fetchMovies: fetchMovies,
     getRandomMovie: getRandomMovie,
-    movieNameList: movieNameList,
     movies: MOVIES
 };

@@ -24,11 +24,7 @@ const props = defineProps<{
 }>();
 
 const checkAnswer = (id: string) => {
-    if (id === props.winningID) {
-        alert("You got it!");
-    } else {
-        alert("Sorry, try again!");
-    }
+    alert(id === props.winningID ? "You got it!" : "Sorry, try again!");
 };
 </script>
 

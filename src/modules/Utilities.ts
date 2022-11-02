@@ -1,11 +1,3 @@
-const removeSpecialCharsFromString = (str: string) => {
-    return str.replace(/[^a-zA-Z ]/g, "");
-}
-
-const getArrayFromString = (str: string) => {
-    return str.split(" ");
-};
-
 const removeCommonWordsFromArray = (arr: string[]) => {
     const commonWords = [
         "a", "all", "an", "and", "are", "as", "at", "be", "but", "by", "for", "if", "in", "middleearth",
@@ -50,8 +42,6 @@ const getIndexesToRemoveFromArray = (arr: any[]) => {
 }
 
 export default {
-    removeSpecialCharsFromString: removeSpecialCharsFromString,
-    getArrayFromString: getArrayFromString,
     removeCommonWordsFromArray: removeCommonWordsFromArray,
     getIndexesToRemoveFromArray: getIndexesToRemoveFromArray
 };

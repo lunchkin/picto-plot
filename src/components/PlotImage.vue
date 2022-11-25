@@ -1,7 +1,9 @@
 <template>
     <div class="imageContainer">
         <figure class="image">
-            <img :src="plotItem.image" alt="Movie Image" />
+            <img
+                :src="plotItem.image"
+                alt="Movie Image" />
         </figure>
         <div class="imageTextContainer">
             <p class="hintText has-text-centered">

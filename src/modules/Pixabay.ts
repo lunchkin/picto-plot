@@ -1,17 +1,17 @@
-const getWordImageArray = async (pixabayData:any) => {
-    return pixabayData.map((data: any) => {
-        const word = data.word;
+import type ImageData from '../types/ImageData';
 
-        if (!data.hits || data.hits.length < 1) {
-            return {
-                word: word,
-                image: null
-            };
+const getWordImageArray = (pixabayData : any) : ImageData[] => {
+    return pixabayData.map((data: any) => {
+        const imageData : ImageData = {
+            word: data.word,
+            url: ''
+        };
+
+        if (data.hits && data.hits.length) {
+            imageData.url = data.hits[0].previewURL;
         }
 
-        const image = data.hits[0].previewURL;
-
-        return {word: word, image: image};
+        return imageData;
     });
 };
 

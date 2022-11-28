@@ -1,6 +1,6 @@
 type ImageData = {
-    word: string;
-    url: string;
+	word: string;
+	url: string
 };
 
 export default ImageData;
